@@ -18,7 +18,7 @@ app still runs, but credit payments are not atomic.
 
 ## Deploy frontend to Vercel and API to Render
 1. In Vercel, import this GitHub repository and set the project root to `client`. Use `npm run build` as the build command and `dist` as the output directory. `client/vercel.json` enables React Router deep links.
-2. In Vercel project settings, set `VITE_API_URL` to `https://<your-render-service>.onrender.com/api` and deploy.
+2. In Vercel project settings, set `VITE_API_URL` to `https://<your-render-service>.onrender.com/api` and deploy. `client/.env.example` shows the expected variable and format for local configuration; Vercel still needs the variable in its project settings.
 3. In Render, create a Blueprint from this repository. `render.yaml` creates the API service. Set `MONGO_URI` to the valid MongoDB Atlas connection string and `CLIENT_URL` to the Vercel production origin (for example, `https://your-app.vercel.app`, without a trailing slash). Render generates `JWT_SECRET` for you.
 4. Confirm the Render service responds at `/api/health`. If you set `CLIENT_URL` after creating the Vercel site, save the Render environment change and redeploy the API.
 
